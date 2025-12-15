@@ -1,0 +1,10 @@
+# Local config with real credentials (use config.js.example as template)
+config.local.js
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
