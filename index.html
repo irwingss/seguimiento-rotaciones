@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Campos Clínicos | INSNSB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css?v=3">
+    <link rel="icon" type="image/png" href="logos/certif_logo_insnsb.png">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logos">
+                <img src="logos/certif_logo_minsa.png" alt="Ministerio de Salud - Perú" class="logo-minsa">
+                <img src="logos/certif_logo_insnsb.png" alt="INSNSB" class="logo-insnsb">
+            </div>
+            <div class="header-text">
+                <h1>Seguimiento de Campos Clínicos</h1>
+                <p class="subtitle">Sub Unidad de Normalización Técnica y Desarrollo de la Docencia (SUNTDD)</p>
+                <p class="subtitle-small">Unidad de Desarrollo de la Investigación, Tecnologías y Docencia (UDITD)</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Actions -->
+    <nav class="nav-actions">
+        <a href="https://portal.insnsb.gob.pe/docencia/" class="btn btn-secondary" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+            Volver al Portal de Docencia
+        </a>
+        <a href="https://portal.insnsb.gob.pe/docencia/wp-content/uploads/residentes_cc_2025-2026.pdf" class="btn btn-primary" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            Ver Requisitos de Postulación
+        </a>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Stats Summary -->
+        <section class="stats-section">
+            <div class="stat-card stat-total">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-campos">--</span>
+                    <span class="stat-label">Campos Totales</span>
+                </div>
+            </div>
+            <div class="stat-card stat-occupied">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-ocupados">--</span>
+                    <span class="stat-label">Campos Ocupados</span>
+                </div>
+            </div>
+            <div class="stat-card stat-available">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-disponibles">--</span>
+                    <span class="stat-label">Campos Disponibles</span>
+                </div>
+            </div>
+            <div class="stat-card stat-services">
+                <div class="stat-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-value" id="total-servicios">--</span>
+                    <span class="stat-label">Servicios</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Year Selector -->
+        <section class="year-selector-section">
+            <button class="year-scroll-btn year-scroll-left hidden" id="year-scroll-left">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="year-tabs-wrapper">
+                <div class="year-tabs" id="year-tabs">
+                    <!-- Tabs will be generated dynamically from spreadsheet -->
+                </div>
+            </div>
+            <button class="year-scroll-btn year-scroll-right hidden" id="year-scroll-right">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+        </section>
+
+        <!-- Search and Filter -->
+        <section class="filter-section">
+            <div class="month-selector-container">
+                <label for="month-selector" class="month-label">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                    Mes:
+                </label>
+                <select id="month-selector" class="month-select">
+                    <!-- Options will be populated dynamically -->
+                </select>
+            </div>
+            <div class="search-box">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <input type="text" id="search-input" placeholder="Buscar servicio o tutor...">
+            </div>
+            <label class="toggle-filter">
+                <input type="checkbox" id="filter-disponibles">
+                <span class="toggle-slider"></span>
+                <span class="toggle-label">Solo servicios con disponibilidad</span>
+            </label>
+        </section>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Cargando datos en tiempo real...</p>
+        </div>
+
+        <!-- Error State -->
+        <div id="error" class="error hidden">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+            <p>Error al cargar los datos. Por favor, intente nuevamente.</p>
+            <button onclick="loadData()" class="btn btn-primary">Reintentar</button>
+        </div>
+
+        <!-- Data Table -->
+        <section id="data-section" class="data-section hidden">
+            <div class="table-container">
+                <table id="data-table">
+                    <thead>
+                        <tr>
+                            <th class="col-unidad">Unidad</th>
+                            <th class="col-subunidad">Sub Unidad</th>
+                            <th class="col-servicio">Servicio a Rotar</th>
+                            <th class="col-tutor">Tutor de Servicio</th>
+                            <th class="col-total">Total</th>
+                            <th class="col-ocupados">Ocupados</th>
+                            <th class="col-disponibles">Disponibles</th>
+                        </tr>
+                    </thead>
+                    <tbody id="table-body">
+                    </tbody>
+                </table>
+            </div>
+            <p class="last-update">Última actualización: <span id="last-update-time">--</span></p>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="contact-info">
+                <h3>Información de Contacto</h3>
+                <div class="contact-details">
+                    <p><strong>Lic. Natalie Roxana Herrera Castellano</strong></p>
+                    <p>Especialista Administrativo</p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        Telf.: 2300600 Anexo 4062
+                    </p>
+                    <p>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <a href="mailto:nherrera@insnsb.gob.pe">nherrera@insnsb.gob.pe</a>
+                    </p>
+                </div>
+            </div>
+            <div class="footer-brand">
+                <p>Instituto Nacional de Salud del Niño - San Borja (INSNSB)</p>
+                <p class="copyright">© 2025 INSNSB - Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="config.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
