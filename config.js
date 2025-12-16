@@ -3,5 +3,5 @@
 // This file is replaced during deployment with real values via GitHub Actions
 // Do not commit secrets here
 const CONFIG = {
-    SPREADSHEET_ID: '__SPREADSHEET_ID__'
+    SPREADSHEET_ID: '1Xsj40BmUG4Lytgg0nyYe6cTdTGeT6kix'
 };
